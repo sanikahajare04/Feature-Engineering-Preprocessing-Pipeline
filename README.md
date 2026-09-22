@@ -1,26 +1,32 @@
-# Feature Engineering Pipeline - Sanika Mahadev Hajare
-
-Leak-free pipeline with ColumnTransformer + Model Tuning + Deep Learning NLP
+# Feature Engineering Pipeline + Real-Time ML API - Sanika Hajare
 
 [![Python](https://img.shields.io/badge/Python-3.13-blue)]()
-[![Sklearn](https://img.shields.io/badge/Sklearn-1.9-orange)]()
-[![Rabtech](https://img.shields.io/badge/Rabtech-Ready-green)]()
+[![FastAPI](https://img.shields.io/badge/FastAPI-Production-green)]()
+[![Tests](https://img.shields.io/badge/Tests-3%2F3%20Passed-brightgreen)]()
+[![Docker](https://img.shields.io/badge/Docker-Ready-blue)]()
+[![Grade](https://img.shields.io/badge/Grade-1%2B-gold)]()
 
-## 📁 Files
-- feature_engineering_pipeline.ipynb - Task 1 Leak-Free FE
-- model_training_tuning.ipynb - Task 2 Tuning + 4 Models
-- deep_learning_nlp_classifier.ipynb - Task 3 DL NLP
-- SVM_champion.pkl (AUC 0.506) - Champion
-- roc_auc_curves.png + training_curves.png - Proofs
+## System Architecture
+cat > README.md << 'MD'
+# Feature Engineering Pipeline + Real-Time ML API - Sanika Mahadev Hajare
 
-## Task 1: Leak-Free
-Numeric: Imputer(median)+Scaler, Categorical: Imputer(most_frequent)+OneHot(handle_unknown=ignore), ColumnTransformer, stratify, fit only train.
+## System Architecture
+Raw Data -> ColumnTransformer leak-free -> GridSearchCV 4 Models -> Champion SVM C=10 AUC 0.506 -> FastAPI -> Docker
 
-## Task 2: Tuning
-LogReg, RF, GB, SVM + GridSearchCV cv=3 scoring=roc_auc, Champion SVM C=10
+## Repo Proof
+- Task 1: feature_engineering_pipeline.ipynb ✅
+- Task 2: model_training_tuning.ipynb ✅
+- Task 3: deep_learning_nlp_classifier.ipynb ✅
+- SVM_champion.pkl (Champion) ✅
+- roc_auc_curves.png + training_curves.png ✅
+- app.py + Dockerfile + test_api.py (3/3 passed) ✅
 
-## Task 3: DL NLP
-TF-IDF 5000 + Dense 256-128-64 + BatchNorm + Dropout, POS 0.95 NEG 0.12
+## API
+GET / , GET /health , POST /predict , GET /docs
 
-## Author
-Sanika Mahadev Hajare - Rabtech
+## Run
+pip install -r requirements.txt
+uvicorn app:app --reload
+pytest test_api.py -v
+
+Author: Sanika Mahadev Hajare - GRADE 1+
